@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Pricing and Backtesting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4">Option Pricing Calculator</h1>
+
+    <!-- Form for running Monte Carlo simulations -->
+    <form action="/simulate" method="POST">
+        <h2>Run Monte Carlo Simulation</h2>
+        <div class="form-group">
+            <label for="initial_price">Initial Stock Price:</label>
+            <input type="number" class="form-control" id="initial_price" name="initial_price" required>
+        </div>
+        <div class="form-group">
+            <label for="volatility">Volatility (e.g., 0.2 for 20%):</label>
+            <input type="number" class="form-control" id="volatility" name="volatility" required step="any">
+        </div>
+        <div class="form-group">
+            <label for="time_horizon">Time Horizon (in years):</label>
+            <input type="number" class="form-control" id="time_horizon" name="time_horizon" required>
+        </div>
+        <div class="form-group">
+            <label for="num_simulations">Number of Simulations:</label>
+            <input type="number" class="form-control" id="num_simulations" name="num_simulations" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Run Simulation</button>
+    </form>
+
+    <!-- Form for pricing American options -->
+    <h2 class="mt-5">Price American Option</h2>
+    <form action="/price-option" method="POST">
+        <div class="form-group">
+            <label for="initial_price">Initial Stock Price:</label>
+            <input type="number" class="form-control" id="initial_price" name="initial_price" required>
+        </div>
+        <div class="form-group">
+            <label for="strike_price">Strike Price:</label>
+            <input type="number" class="form-control" id="strike_price" name="strike_price" required>
+        </div>
+        <div class="form-group">
+            <label for="time_horizon">Time Horizon (in years):</label>
+            <input type="number" class="form-control" id="time_horizon" name="time_horizon" required>
+        </div>
+        <div class="form-group">
+            <label for="risk_free_rate">Risk-Free Rate (e.g., 0.05 for 5%):</label>
+            <input type="number" class="form-control" id="risk_free_rate" name="risk_free_rate" required step="any">
+        </div>
+        <div class="form-group">
+            <label for="volatility">Volatility (e.g., 0.2 for 20%):</label>
+            <input type="number" class="form-control" id="volatility" name="volatility" required step="any">
+        </div>
+        <div class="form-group">
+            <label for="option_type">Option Type:</label>
+            <select class="form-control" id="option_type" name="option_type" required>
+                <option value="call">Call</option>
+                <option value="put">Put</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Price Option</button>
+    </form>
+
+    <!-- Form for backtesting a strategy -->
+    <h2 class="mt-5">Backtest Strategy</h2>
+    <form action="/backtest" method="POST">
+        <div class="form-group">
+            <label for="ticker">Stock Ticker Symbol:</label>
+            <input type="text" class="form-control" id="ticker" name="ticker" required>
+        </div>
+        <div class="form-group">
+            <label for="start_date">Start Date (YYYY-MM-DD):</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" required>
+        </div>
+        <div class="form-group">
+            <label for="end_date">End Date (YYYY-MM-DD):</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Backtest Strategy</button>
+    </form>
+
+</body>
+</html>
