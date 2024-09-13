@@ -57,10 +57,6 @@ To run this project locally, follow these steps:
 
 3. **Backtest Strategy:** Enter the stock ticker symbol, start date, and end date, then click "Backtest Strategy" to view the historical data and backtest results.
 
-## Contributing
-
-If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes. Ensure that your code follows the project's coding style and includes appropriate tests.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
